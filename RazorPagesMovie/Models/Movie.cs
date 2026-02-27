@@ -25,8 +25,7 @@ public class Movie
     [StringLength(30)]
     public string Genre { get; set; } = string.Empty;
 
-    [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
-    [StringLength(5)]
     [Required]
-    public string Rating { get; set; } = string.Empty;
+    [Range(1, 10, ErrorMessage = "Must be between 1 and 10.")]
+    public int Rank { get; set; }
 }
