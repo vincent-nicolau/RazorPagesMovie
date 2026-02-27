@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Data;
 using RazorPagesMovie.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel;
 
 namespace RazorPagesMovie.Pages.Movies
 {
@@ -21,6 +22,15 @@ namespace RazorPagesMovie.Pages.Movies
         }
 
         public IList<Movie> Movie { get;set; } = default!;
+
+        [BindProperty(SupportsGet = true)]
+        public string? searchString { get; set; }
+
+        public SelectList? Genres { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+
+        public string? MovieGenre { get; set; }
 
         public async Task OnGetAsync()
         {
